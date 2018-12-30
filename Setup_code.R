@@ -12,18 +12,18 @@
 ###########################
 
 # function to load packages 
-using<-function(...) {
-  libs<-unlist(list(...))
-  req<-unlist(lapply(libs,require,character.only=TRUE))
-  need<-libs[req==FALSE]
-  n<-length(need)
+using=function(...) {
+  libs=unlist(list(...))
+  req=unlist(lapply(libs,require,character.only=TRUE))
+  need=libs[req==FALSE]
+  n=length(need)
   if(n>0){
-    libsmsg<-if(n>2) paste(paste(need[1:(n-1)],collapse=", "),",",sep="") else need[1]
+    libsmsg=if(n>2) paste(paste(need[1:(n-1)],collapse=", "),",",sep="") else need[1]
     print(libsmsg)
     if(n>1){
       libsmsg<-paste(libsmsg," and ", need[n],sep="")
     }
-    libsmsg<-paste("The following packages could not be found: ",libsmsg,"\n\r\n\rInstall missing packages?",collapse="")
+    libsmsg=paste("The following packages could not be found: ",libsmsg,"\n\r\n\rInstall missing packages?",collapse="")
     if(winDialog(type = c("yesno"), libsmsg)=="YES"){       
       install.packages(need)
       lapply(need,require,character.only=TRUE)
@@ -100,13 +100,13 @@ box=bbox2sp(obj = box, sp = 'SpatialPolygonsDataFrame', keep.crs = T)
 ###########################################################
 
 # definition of the weeksof the year contained in each month of the model's standard year
-weeks.by.month<-list(c(1:4), c(5:8), c(9:13), c(14:17), c(18:22), c(23:26), c(27:30), c(31:35), c(36:39), c(40:43), c(44:48), c(49:52))  
+weeks.by.month=list(c(1:4), c(5:8), c(9:13), c(14:17), c(18:22), c(23:26), c(27:30), c(31:35), c(36:39), c(40:43), c(44:48), c(49:52))  
 
 # weeks of the year when dispersal juveniles can star dispersing. May to September.
 dispersal.t=c(19:39) 
 
 # weeks of the year when breeding and cheat can occur.
-cheat.t<-c(48:52,1:2)
+cheat.t=c(48:52,1:2)
 
 #############################
 ### --- FIXED OBJECTS --- ###
