@@ -31,8 +31,9 @@ using=function(...) {
   }
 }
 
-
+################################
 # --- LOAD PACKAGES NEEDED --- #
+################################
 # if packages needed are not installed, it will ask for permission to install them.
 
 using("sp","rgeos","pedometrics","partitions", "gtools")
