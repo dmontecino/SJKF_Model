@@ -148,6 +148,15 @@ males.that.have.cheated.all=readRDS(url(description="https://drive.google.com/uc
 # definition of the weeksof the year contained in each month of the model's standard year
 weeks.by.month=list(c(1:4), c(5:8), c(9:13), c(14:17), c(18:22), c(23:26), c(27:30), c(31:35), c(36:39), c(40:43), c(44:48), c(49:52))  
 
+#weeks of the year when breeding occurs (as defined by Koopman et al 1998)
+breed.t=c(48:52,1:5) 
+
+#weeks of the year when pup rearing occurs (as defined by Koopman et al 1998)
+rearing.t=c(6:18) # weeks when it is pup rearing period
+
+#weeks of the year without breeding or rearing pups
+other.t=c(19:47)
+
 # weeks of the year when dispersal juveniles can star dispersing. May to September.
 dispersal.t=c(19:39) 
 
