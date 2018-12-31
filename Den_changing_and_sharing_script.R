@@ -10,7 +10,7 @@
 
 
 # For the parameters of the processes associated with den changing and den sharing refer to the script "Setup_model_script.R" located 
-# .....
+# in https://github.com/dmontecino/SJKF_Model/blob/master/Setup_model_script.R
 
 
 if(sharing=='Yes'){ # if the model is concerned on den change and sharing then
