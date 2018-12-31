@@ -37,25 +37,40 @@ You will not see these datasets if you do not want to except at the end of the s
 
 The fox dataset contains the following columns:
 
-*Fam_id = the id of the family the fox belongs to. When they move to another family group this value changes. 
+*Fam_id = the id of the family the fox belongs to. When they move to another family group this value changes.
+
 *Fox_id = the fox id. This is unique for each fox even after they die.
+
 *Father_id = the id of the father of the fox. To avoid them to compete, use the same den if they should not and mate (if female) 
+
 *Mother_id = the id of the mother of the fox. To avoid them to compete, use the same den if they should not and mate (if male) 
+
 *Gender = male =1 , female=0
+
 *Social = 1,2,3, pups, subdominants and dominants, respectively
+
 *Age = in number of years   
+
 *Alive =1 for alive, 0 otherwise. The foxes dying during the week  ones are cleaned from the dataset.
+
 *Disp = 0,1,2 : subdominants that will not disperse, subdominants that will disperse, and subdominants dispersing, respectively.  0 does not become 2 but 1 does become 2 once it starts dispersing
+
 *S = susceptibility status to sarcoptic mange (1, if susceptible 0 otherwise). See details in the journal article.
+
 *E = exposed status to sarcoptic mange (1, if exposed 0 otherwise). See details in the journal article.
+
 *I.1 = infectious type 1 status of the fox (1, if infectious type 1, 0 otherwise). See details in the journal article.
+
 *I.2 = infectious type 2 status of the fox (1, if infectious type 2, 0 otherwise). See details in the journal article. 
+
 *Den_id = The den that the fox is currently using.
 
 The den dataset contains the following columns:
 
-*Den_id: as previously explained
-*Land_type: the land type in which the den is located in
+*Den_id: as previously explained.
+
+*Land_type: the land type in which the den is located in.
+
 *I: the sarcoptes scabiei infestation status of the den (1 if infested, 0 otherwise).
 
 ## INSTRUCTIONS ##
