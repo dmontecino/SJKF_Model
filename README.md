@@ -1,5 +1,5 @@
 Hi everyone. This README contains the information needed to run the model constructed to assess the role of dens in the spread, 
-establishment, and persistence of sarcoptic mange in the San Joaquin kit fox population, located in Bakersfield, California. This model was published in the journal "Epidemics" with the title:"Assessing the role of dens in the spread, establishment, and persistence of sarcoptic mange in an endangered canid", by Diego Montecino-Latorre et al., (2019). 
+establishment, and persistence of sarcoptic mange in the San Joaquin kit fox population, located in Bakersfield, California. This model was published in the journal "Epidemics" with the title: "Assessing the role of dens in the spread, establishment, and persistence of sarcoptic mange in an endangered canid", by Diego Montecino-Latorre et al., (2019). 
 
 This README will not go through the details of the model. For that check the article.
 
@@ -22,6 +22,8 @@ The model is divided in 5 scripts I thought this will make it easier to understa
 
 The ONLY script you need to download to run the model is the one containing the function: 
 located at ...
+
+All packages needed will be installed automatically if not installed. You will be requiered to approve the installation. the Installed packages as well as those that were already installed in your computer will be loaded automatically.
 
 All files needed to run the model, such as the spatial objects containing the home ranges and others will be automatically downloaded as 
 a temp file and the objects will be loaded in your R session. The only exception is explained below (The largest file needs to be downloaded by the user).
