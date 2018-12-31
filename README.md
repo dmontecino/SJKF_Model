@@ -7,7 +7,7 @@ This README will not go through the details of the model. For that check the art
 
 The model is divided in 6 scripts I thought this will make it easier to understand it. These are:
 
-* The setup of the model: 
+* The setup of the model (https://github.com/dmontecino/SJKF_Model/blob/master/Setup_model_script.R)
 
 * The den changing and sharing process (https://github.com/dmontecino/SJKF_Model/blob/master/Den_changing_and_sharing_script.R)
 
