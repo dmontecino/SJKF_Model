@@ -33,7 +33,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
     
   #### -------- START OF THE D WEEK ------- #### 
     
-    for(d in 1:52){ #for every week  
+    for(d in 1:5){ #for every week  
       
       #------------------------------#
       
