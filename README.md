@@ -36,41 +36,26 @@ The model works by modifying 2 datasets every week: the fox dataset and the den 
 
 The fox dataset contains the following columns:
 
-*Fam_id = the id of the family the fox belongs to. When they move to another family group this value changes.
-
-*Fox_id = the fox id. This is unique for each fox even after they die.
-
-*Father_id = the id of the father of the fox. To avoid them to compete, use the same den if they should not and mate (if female). 
-
-*Mother_id = the id of the mother of the fox. To avoid them to compete, use the same den if they should not and mate (if male).
-
-*Gender = male =1 , female=0.
-
-*Social = 1,2,3, pups, subdominants and dominants, respectively.
-
-*Age = number of years. 
-
-*Alive = 1 for alive, 0 otherwise. The foxes dying during the week  ones are cleaned from the dataset.
-
-*Disp = 0, 1, 2 : subdominants that will not disperse, subdominants that will disperse, and subdominants dispersing, respectively.  0 does not become 2 but 1 does become 2 once the fox starts dispersing.
-
-*S = susceptibility status to sarcoptic mange (1, if susceptible 0 otherwise). See details in the journal article.
-
-*E = exposed status to sarcoptic mange (1, if exposed 0 otherwise). See details in the journal article.
-
-*I.1 = infectious type 1 status of the fox (1, if infectious type 1, 0 otherwise). See details in the journal article.
-
-*I.2 = infectious type 2 status of the fox (1, if infectious type 2, 0 otherwise). See details in the journal article. 
-
-*Den_id = The den that the fox is currently using.
+* Fam_id = the id of the family the fox belongs to. When they move to another family group this value changes.
+* Fox_id = the fox id. This is unique for each fox even after they die.
+* Father_id = the id of the father of the fox. To avoid them to compete, use the same den if they should not and mate (if female). 
+* Mother_id = the id of the mother of the fox. To avoid them to compete, use the same den if they should not and mate (if male).
+* Gender = male =1 , female=0.
+* Social = 1,2,3, pups, subdominants and dominants, respectively.
+* Age = number of years. 
+* Alive = 1 for alive, 0 otherwise. The foxes dying during the week  ones are cleaned from the dataset.
+* Disp = 0, 1, 2 : subdominants that will not disperse, subdominants that will disperse, and subdominants dispersing, respectively.  0 does not become 2 but 1 does become 2 once the fox starts dispersing.
+* S = susceptibility status to sarcoptic mange (1, if susceptible 0 otherwise). See details in the journal article.
+* E = exposed status to sarcoptic mange (1, if exposed 0 otherwise). See details in the journal article.
+* I.1 = infectious type 1 status of the fox (1, if infectious type 1, 0 otherwise). See details in the journal article.
+* I.2 = infectious type 2 status of the fox (1, if infectious type 2, 0 otherwise). See details in the journal article. 
+* Den_id = The den that the fox is currently using.
 
 The den dataset contains the following columns:
 
-*Den_id: as previously explained.
-
-*Land_type: the land type in which the den is located in (See details in the journal article). 
-
-*I: the sarcoptes scabiei infestation status of the den (1 if infested, 0 otherwise).
+* Den_id: as previously explained.
+* Land_type: the land type in which the den is located in (See details in the journal article). 
+* I: the sarcoptes scabiei infestation status of the den (1 if infested, 0 otherwise).
 
 ## INSTRUCTIONS ##
 
@@ -82,6 +67,48 @@ Download the model function script from this link and open it in R.
 
 Modify line .. of the model function script to load the object containing the home ranges. Of you are not planning on running the 1000 iterations available, subset this list to the number you want to.
 
+Suprimir listas del output
+
+## OUTPUT
+
+The output of the model comes in matrices and lists. The matrices rows equal the number of iterations (max 1,000) and the number of columns equal to the total number of years simulated multiplied by the number of weeks per year simulated (always 52). These matrices are:
+
+* N: the number of alive foxes
+* Adults: The number of dominant foxes
+* Adults_male: the number of dominant males
+* Adults_fem: the number of dominant females
+* Subadults: the number of subdominants
+* Disperse: the number of dispersers
+* Subadults_male: the number of male subdominants
+* Subadults_fem: the number of female subdominants
+* Pups: the number of pups
+* Exposed: the number of exposed foxes
+* Infected1: the number of infectious type I foxes
+* Infected2: the number of infectious type II foxes
+
+I the case of the lists, they contain the Family, Fox or den id per week of the different items. The strucure of these lists has 2 levels: the highest one is the number of iterations. The lower one is the current week with the corresponding id's
+There is an option to supress this output. See "Instructions".
+
+* Fams_Exposed: Families with at least one member exposed
+* Fams_Infected1: Families with at least one member infectious type I
+* Fams_Infected2: Families with at least one member infectious type II
+* Fams_mange: Families with mange
+* Adult_sus: Susceptible dominants
+* Adult_exp: Exposed dominants
+* Adult_i1: Infectious type I dominants
+* Adult_i2: Infectious type II dominants
+* Subadult_sus: Susceptible subdominants
+* Subadult_exp: Exposed subdominants
+* Subadult_i1: Infectious type I subdominants
+* Subadult_i2: Infectious type II subdominants
+* Pup_sus: Susceptible pups
+* Pup_exp: Exposed pups
+* Pup_i1: Infectious type I pups
+* Pup_i2: Infectious type II pups
+* Dens_susc: Uninfested dens
+* Dens_inf: Infested dens
+
+## Assess the output
 
 
 
