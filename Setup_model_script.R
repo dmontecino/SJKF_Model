@@ -300,7 +300,7 @@ Dead_adults_mange= # id of adults dead becuase of mange
 Dead_subadults_mange= # id of adults dead becuase of mange
 Dead_pups_mange= # id of adults dead becuase of mange
 Dens_susc=  # id of susceptible dens
-Dens_inf=lapply(vector('list', 1000), function(x){vector('list', 52*years_simulate)}) # id of infested dens
+Dens_inf=lapply(vector('list', num.iterations), function(x){vector('list', 52*years_simulate)}) # id of infested dens
 #Probs=matrix(NA, nrow = 5, ncol=1000)
 
 # Character vector with the names of the objects to save as output
