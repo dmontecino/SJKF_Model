@@ -210,7 +210,7 @@ if(sharing=='Yes'){ # if the model is concerned on den change and sharing then
             sa.current.fam.am=sample(sa.current.fam, sa.groups[1]) # choose the subdominants to stay with with the dominant male
             sa.current.fam.af=sample(sa.current.fam, sa.groups[2]) # choose the subdominants to stay with with the dominant male
             fox[fox$Fox_id%in%sa.current.fam.am,]$Den_id=new.den.male # move the subdominants with the dominant male
-            fox[fox$Fox_id%in%sa.current.fam.af,]$Den_id=new.den.femalen # move the subdominants with the dominant female
+            fox[fox$Fox_id%in%sa.current.fam.af,]$Den_id=new.den.female # move the subdominants with the dominant female
             if(length(sa.groups)>2){# if there are more than 2 groups of subdominants
               for(i in 1:(length(sa.groups[-c(1,2)]))){ #then
                 if(i==1){ # locate the remaining groups in a den different of the one chosen by the dominant individuals as well as different from the one chosen by the other subdominant groups
