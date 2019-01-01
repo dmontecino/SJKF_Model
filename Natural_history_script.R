@@ -529,3 +529,6 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
  
 output=lapply(to.save, get)
 names(output)=to.save
+
+assign("output", output, envir=globalenv())
+
