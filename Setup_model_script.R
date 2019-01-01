@@ -295,7 +295,7 @@ Disperse=
 Pups= # Total alive pups per day
 Exposed= # Total alive exposed foxes per day
 Infected1= # Total alive infected 1 per day
-Infected2=matrix(NA, nrow=1000, ncol=52*years_simulate)  # Total alive infected 2 per day
+Infected2=matrix(NA, nrow=num.iterations, ncol=52*years_simulate)  # Total alive infected 2 per day
 Fams_Exposed=
 Fams_Infected1=
 Fams_Infected2=
