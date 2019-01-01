@@ -13,7 +13,7 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The disease transmission process (https://github.com/dmontecino/SJKF_Model/blob/master/Disease_transmission_script.R)
 
-* Other natural history processes of the species in Bakersfield.
+* Natural history processes of the species in Bakersfield. This is the main chunk of code that calls the 2 previous scripts and the following one (https://github.com/dmontecino/SJKF_Model/blob/master/Natural_history_script.R)
 
 * The data collection on a weekly basis (https://github.com/dmontecino/SJKF_Model/blob/master/Data_collection_script.R)
 
