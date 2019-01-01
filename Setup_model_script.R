@@ -51,17 +51,7 @@ using("sp","rgeos","pedometrics","partitions", "gtools")
 # the spatial location where to insert the first exposed individual (a spatial polygon that selects the home ranges in which the first exposed fox can be inserted)
 
 ## --- HOME RANGES ACROSS ITERATIONS ---- ##
-# download as temp and load the all the simulated home ranges per iteration. Same applies for the following loads
-# the location of the home ranges is informed by Bakersfield's suitability for san joaquin kit foxes across the city
-
-# takes about 5 mins to load
-
-# start.time=Sys.time()
-# test=readRDS(url(description="https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU", open = "rb"))
-# readRDS(url(description="https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU", open = "rb"))
-# end.time=Sys.time()
-
-
+# this one does not work. I have not figured out yet but my guess is the size of the file.
 
 ## --- DENS PER HOME RANGE ACROSS ITERATIONS ---- ##
 # the location of the dens is informed bu the land types withing the home ranges (see Frost 2005)
@@ -117,7 +107,8 @@ box=bbox2sp(obj = box, sp = 'SpatialPolygonsDataFrame', keep.crs = T)
 # takes about 5 seconds
 fox.no.disease.yet=readRDS(url(description="https://drive.google.com/uc?export=download&id=1_TYsebDfieA7NEF0ees9VuahatUH0VJk", open = "rb"))
 
-# ----- other features of the fox population by the time the simulation stopped ---#
+
+# ----- other features of the fox population with no disease by the time the simulation stopped ---#
 
 # Load the data about how many weeks were the male positions available 
 # by the time the simulations of uninfested fox populations (see the previous object) were finished. For the following years to be simulated now this object is created in the current script.
@@ -140,6 +131,11 @@ adult.fem.mating.week.all=readRDS(url(description="https://drive.google.com/uc?e
 # list of males that have cheated alerady by the time the simulation to construct the fox populations was over.
 males.that.have.cheated.all=readRDS(url(description="https://drive.google.com/uc?export=download&id=1-49sOC1GOxsLAmi2bA05ptvtOqSAmrhv", open = "rb"))
 
+
+### --- FILES NEEDED FOR THE SIMULATIONS IN ENDEMIC SCENARIO --- ###
+
+if(epidemic==FALSE){
+files.to.load.all=readRDS(url(description="https://drive.google.com/uc?export=download&id=1-z1BF2JCLBbGMM5gXrZYInvgoN9sQbJP", open = "rb"))}
 
 ###########################################################
 ### ---- TIME UNITS AND TIME PERIODS IN THE MODEL ---- ####
