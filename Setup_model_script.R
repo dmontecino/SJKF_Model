@@ -190,8 +190,14 @@ track.disease=T
 
 ### ---- SAN JOAQUIN KIT FOX NATURAL HISTORY PARAMETERS ---- ###
 
-#litter sizes and the corresponding probabilities of each one
+# pregnancy probability of a dominat female. pRep in Supplementary Table 3. The name of the object is misleading but mantain to avoid script problems.
+preg_repro=rep.rate=0.788 
+
+#litter sizes and the corresponding probabilities of each one. the second column is lPup in Supplementary Table 3
 pups.by.fam.init=data.frame(N=c(1,2,3,4,5,6), Prob=c(0.095,0.238,0.429,0.095,0.095,0.048)) #Spencer 1992
+
+# The gender of the pups. pPs in Supplementary Table 3.
+Pup_sex = 0.5
 
 # the number of weeks it takes for a subdominant to take the dominant poisiton of the dominant male and female, respectively.
 weeks.adult.male.position.is.refill.ater.death<-c(2:7)
@@ -227,8 +233,6 @@ pup.weekly.surv.prob=pup.daily.surv.prob=1-pup.weekly.mort.prob #name mantained 
 disp.sa.fem.daily.surv.prob= 0.6 
 disp.sa.male.daily.surv.prob=0.6 
 
-# pregnancy probability of a dominat female. The name of the object is misleading but mantain to avoid script problems.
-preg_repro=rep.rate=0.788 
 
 # probability a male pup born in the current year becomes a diperser
 prob.to.start.dispersing.male=0.35 #0.5
