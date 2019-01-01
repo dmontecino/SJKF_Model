@@ -11,7 +11,7 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The den changing and sharing process (https://github.com/dmontecino/SJKF_Model/blob/master/Den_changing_and_sharing_script.R)
 
-* The disease transmission process.
+* The disease transmission process https://github.com/dmontecino/SJKF_Model/blob/master/Disease_transmission_script.R
 
 * Other natural history processes of the species in Bakersfield.
 
@@ -74,7 +74,7 @@ The den dataset contains the following columns:
 
 ## INSTRUCTIONS ##
 
-Do not run this model in a computer with less than 8 Mb RAM. I built it in a 16 MB RAM computer and everything worked just fine including functionalities beyond running the model.
+Do not run this model in a computer with less than 8 MB RAM. I built it in a 16 MB RAM computer and everything worked just fine including functionalities beyond running the model.
 
 Download the file containing the home ranges from this link: https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU
 
