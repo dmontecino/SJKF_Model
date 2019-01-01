@@ -11,11 +11,11 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The den changing and sharing process (https://github.com/dmontecino/SJKF_Model/blob/master/Den_changing_and_sharing_script.R)
 
-* The disease transmission process https://github.com/dmontecino/SJKF_Model/blob/master/Disease_transmission_script.R
+* The disease transmission process (https://github.com/dmontecino/SJKF_Model/blob/master/Disease_transmission_script.R)
 
 * Other natural history processes of the species in Bakersfield.
 
-* Data collection.
+* The data collection on a weekly basis (https://github.com/dmontecino/SJKF_Model/blob/master/Data_collection_script.R)
 
 * The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, and the transmission parameters for den associated transmission pathways. This script actually runs the model.
 
