@@ -262,6 +262,23 @@ prob.den.change.breed.t.48.52=1-exp(-0.59/4) # here the expected in the last 5 w
 prob.den.change.other=1-exp(-13/28) #similarly but for the rest of the year (not during the breeding - pup rearing period as deinfed by Koopman et al., 1998)
 
 
+# ----DISEASE TRANSMISSION PARAMETERS --- #
+
+# Probability of transmission betwenn foxes in the same family due to social activities such as allogrooming etc
+prob.trans.foxes.contact.fam=runif(n = num.iterations, min = prob.trans.foxes.contact.fam.min, max = prob.trans.foxes.contact.fam.max)
+
+# Probability of transmission from foxes while sharing dens (this includes also that the dens are infested)
+prob.trans.foxes.share.den=runif(n = num.iterations, min = prob.trans.foxes.share.den.min, max = prob.trans.foxes.share.den.max)
+
+#Probability of trasmission from infested dens to susceptible foxes
+prob.trans.den.to.foxes=runif(n = num.iterations, min = prob.trans.den.to.foxes.min, max = prob.trans.den.to.foxes.max)
+
+# Probability of transmission through mating
+prob.trans.foxes.mating=runif(n = num.iterations, min = prob.trans.foxes.mating.min, max = prob.trans.foxes.mating.max)
+
+# Probability of transmission through nursing
+prob.trans.pups.nursing.inf.female=runif(n = num.iterations, min = prob.trans.pups.nursing.inf.female.min, max = prob.trans.pups.nursing.inf.female.max)
+
 
 #################################################
 ## --- OBJECTS TO SAVE DATA FROM THE MODEL --- ##
