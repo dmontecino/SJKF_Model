@@ -530,3 +530,6 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
 # get the output
  output=lapply(to.save, get)
  names(output)=to.save
+
+#save the output
+saveRDS('/Users/Diego_iCloud/Desktop/output.RDS')
