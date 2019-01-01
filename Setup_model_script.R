@@ -199,46 +199,46 @@ pups.by.fam.init=data.frame(N=c(1,2,3,4,5,6), Prob=c(0.095,0.238,0.429,0.095,0.0
 # The gender of the pups. pPs in Supplementary Table 3.
 Pup_sex = 0.5
 
+# probability a male pup born in the current year becomes a diperser. pDispM in Supplementary Table 3.
+prob.to.start.dispersing.male=0.35 #0.5
+
+# probability a female pup born in the current year becomes a diperser. pDispF in Supplementary Table 3.
+prob.to.start.dispersing.female=0.1 #0.23
+
+
 # the number of weeks it takes for a subdominant to take the dominant poisiton of the dominant male and female, respectively.
 weeks.adult.male.position.is.refill.ater.death<-c(2:7)
 weeks.adult.female.position.is.refill.ater.death<-c(2:7)
 
-# weekly survival probability of adults
+# weekly survival probability of dominants. This is pSurvD in Supplementary Table 3.
 ad.anual.mort.prob=1-0.78
 ad.anual.mort.rate=-log(1-ad.anual.mort.prob)
 ad.weekly.mort.prob=1-exp(-ad.anual.mort.rate/52)
 ad.weekly.surv.prob=ad.daily.surv.prob=1-ad.weekly.mort.prob #name mantained to avoid changing label in each script
 
-# weekly survival probability of female subdominants
-sa.fem.anual.mort.prob=1-0.535
-sa.fem.anual.mort.rate=-log(1-sa.fem.anual.mort.prob)
-sa.fem.weekly.mort.prob=1-exp(-sa.fem.anual.mort.rate/43) # 43 from 304/7
-sa.fem.weekly.surv.prob=sa.fem.daily.surv.prob=1-sa.fem.weekly.mort.prob #name mantained to avoid changing label in each code
-sa.fem.weekly.surv.prob=sa.fem.daily.surv.prob=0.994
-
-# weekly survival probability of male subdominants
+# weekly survival probability of male subdominants. This is pSurvMS in Supplementary Table 3.
 sa.male.anual.mort.prob=1-0.62
 sa.male.anual.mort.rate=-log(1-sa.male.anual.mort.prob)
 sa.male.weekly.mort.prob=1-exp(-sa.male.anual.mort.rate/15) # 15 from 104/7
 sa.male.weekly.surv.prob=sa.male.daily.surv.prob=1-sa.male.weekly.mort.prob #name mantained to avoid changing label in each code
 sa.male.weekly.surv.prob=sa.male.daily.surv.prob=0.988
 
-# weekly survival probability of pups
+# weekly survival probability of female subdominants. This is pSurvFS in Supplementary Table 3.
+sa.fem.anual.mort.prob=1-0.535
+sa.fem.anual.mort.rate=-log(1-sa.fem.anual.mort.prob)
+sa.fem.weekly.mort.prob=1-exp(-sa.fem.anual.mort.rate/43) # 43 from 304/7
+sa.fem.weekly.surv.prob=sa.fem.daily.surv.prob=1-sa.fem.weekly.mort.prob #name mantained to avoid changing label in each code
+sa.fem.weekly.surv.prob=sa.fem.daily.surv.prob=0.994
+
+# weekly survival probability of dispersers. These are pSurvSDM anf pSurvSDF in Supplementary Table 3.
+disp.sa.fem.daily.surv.prob= 0.7 
+disp.sa.male.daily.surv.prob=0.7 
+
+# weekly survival probability of pups. This is pSurvP in Supplementary Table 3.
 pup.anual.mort.prob=1-0.8
 pup.anual.mort.rate=-log(1-pup.anual.mort.prob)
 pup.weekly.mort.prob=1-exp(-pup.anual.mort.rate/15) # 15 from 104/7
 pup.weekly.surv.prob=pup.daily.surv.prob=1-pup.weekly.mort.prob #name mantained to avoid changing label in each code
-
-# weekly survival probability of dispersers
-disp.sa.fem.daily.surv.prob= 0.6 
-disp.sa.male.daily.surv.prob=0.6 
-
-
-# probability a male pup born in the current year becomes a diperser
-prob.to.start.dispersing.male=0.35 #0.5
-
-# probability a female pup born in the current year becomes a diperser
-prob.to.start.dispersing.female=0.1 #0.23
 
 # Parameters defining when they will start to disperse
 #object defining probabilities to start dispersing per month Following Koopman 1998.
@@ -248,40 +248,51 @@ disp.prob.dist$Dispersal=disp.prob.dist$Dispersal/sum(disp.prob.dist$Dispersal) 
 
 
 
-# ----DEN SHARING AND CHANGING PARAMETERS --- #
+# ----DEN CHANGING PARAMETERS --- #
 # The following parameters are informed by Koopman et al, 1998
 
 # Probability to change den during the breeding period and the pup rearing period.
 # These periods have a single prob becuase Koopman 1998 says there are not statistically different 
 # in terms of the number of dens used in both seasons.
 
-prob.den.change.breed.t.rearing.t=1-exp(-6/22)
+prob.den.change.breed.t.rearing.t=1-exp(-6/22) # This is pChange[1] in Supplementary Table 3.
 prob.den.change.breed.t.rearing.t.week.1.18=1-exp(-5.72/18) 
 # it is expected that 7 dens will be used in total during these seasons combined, but 4 weeks have to be discounted (the last 4 weeks of th previous year) so the expected is 5.72 dens in these 18 weeks.
 
-#probability to change during the early weeks of the breeding season
+#probability to change during the early weeks of the breeding season. This is pChange[2] in Supplementary Table 3.
 prob.den.change.breed.t.48.52=1-exp(-0.59/4) # here the expected in the last 5 weeks of the year is 1.59 dens to be used but in the very first week of this period, all foxes are changed to a new den in order to 
 # fulfill the period rules. Therefore, it is one less den and one less week
 
-prob.den.change.other=1-exp(-13/28) #similarly but for the rest of the year (not during the breeding - pup rearing period as deinfed by Koopman et al., 1998)
+#similarly but for the rest of the year (not during the breeding - pup rearing period as deinfed by Koopman et al., 1998)
+prob.den.change.other=1-exp(-13/28)  # This is pChange[3] in Supplementary Table 3.
+
+# For den sharing parameters see the script Den_changing_and_sharing_script.R
+
+
 
 
 # ----DISEASE TRANSMISSION PARAMETERS --- #
 
 # Probability of transmission betwenn foxes in the same family due to social activities such as allogrooming etc
+# pSocial in Table 2.
 prob.trans.foxes.contact.fam=runif(n = num.iterations, min = prob.trans.foxes.contact.fam.min, max = prob.trans.foxes.contact.fam.max)
 
-# Probability of transmission from foxes while sharing dens (this includes also that the dens are infested)
-prob.trans.foxes.share.den=runif(n = num.iterations, min = prob.trans.foxes.share.den.min, max = prob.trans.foxes.share.den.max)
-
-#Probability of trasmission from infested dens to susceptible foxes
-prob.trans.den.to.foxes=runif(n = num.iterations, min = prob.trans.den.to.foxes.min, max = prob.trans.den.to.foxes.max)
-
 # Probability of transmission through mating
+# pMating in Table 2.
 prob.trans.foxes.mating=runif(n = num.iterations, min = prob.trans.foxes.mating.min, max = prob.trans.foxes.mating.max)
 
 # Probability of transmission through nursing
+# pNurse in Table 2.
 prob.trans.pups.nursing.inf.female=runif(n = num.iterations, min = prob.trans.pups.nursing.inf.female.min, max = prob.trans.pups.nursing.inf.female.max)
+
+# Probability of transmission from foxes while sharing dens (this includes also that the dens are infested)
+# pShare in Table 2.
+prob.trans.foxes.share.den=runif(n = num.iterations, min = prob.trans.foxes.share.den.min, max = prob.trans.foxes.share.den.max)
+
+#Probability of trasmission from infested dens to susceptible foxes
+#pDenfox in Table 2.
+prob.trans.den.to.foxes=runif(n = num.iterations, min = prob.trans.den.to.foxes.min, max = prob.trans.den.to.foxes.max)
+
 
 
 #################################################
