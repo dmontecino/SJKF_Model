@@ -526,3 +526,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
 }# close the loop of the iterations
 
       #------------------------------------------------------#
+ 
+# get the output
+ output=lapply(to.save, get)
+ names(output)=to.save
