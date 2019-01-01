@@ -121,7 +121,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
                               Fox_id=temp,
                               Father_id=rep(fox[fox$Social==3 & fox$Gender==1,]$Fox_id,pups_n),
                               Mother_id=rep(fox[fox$Social==3 & fox$Gender==0,]$Fox_id,pups_n),
-                              Gender=rbinom(n =sum(pups_n), size = 1, prob = 0.5 )  ,
+                              Gender=rbinom(n =sum(pups_n), size = 1, prob = Pup_sex )  ,
                               Social=rep(1,sum(pups_n)),
                               Age=rep(0,sum(pups_n)),
                               Alive=rep(0,sum(pups_n)),
