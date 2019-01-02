@@ -17,7 +17,7 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The data collection on a weekly basis (https://github.com/dmontecino/SJKF_Model/blob/master/Data_collection_script.R)
 
-* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, the transmission parameters for den associated transmission pathways, and the number of week S. scabiei can survive off-host within den per type of land type and season. This script actually runs the model (https://github.com/dmontecino/SJKF_Model/blob/master/Model_function.R).
+* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, the transmission parameters for den associated transmission pathways, and the number of week S. scabiei can survive off-host within den per type of land type and season. This script actually runs the model (https://github.com/dmontecino/SJKF_Model/blob/master/Model_function_script.R)
 
 
 ## HOW DOES IT WORK?
