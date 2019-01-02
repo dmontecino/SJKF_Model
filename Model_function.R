@@ -78,8 +78,7 @@
   # load the home ranges #
   # modify the "your_path/all_home_ranges_per_iteration.RDS" to the location of the all_home_ranges_per_iteration.RDS in your computer
   # go to the README if you do not know where to download this file from.
-  all_home_ranges=readRDS("/Users/Diego_iCloud/Google Drive File Stream/My Drive/UC Davis/PhD_Project/Kit_fox_dynamical_model/Model/ModelObjects/all_home_ranges_per_iteration.RDS")
-  #all_home_ranges=readRDS("/Your_path/all_home_ranges_per_iteration.RDS")
+  # all_home_ranges=readRDS("/Your_path/all_home_ranges_per_iteration.RDS")
   
   # The model script
   eval(parse(text = getURL("https://raw.githubusercontent.com/dmontecino/SJKF_Model/master/Natural_history_script.R", ssl.verifypeer = FALSE)))
