@@ -63,7 +63,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         fox$num=sapply(strsplit(as.character(fox$Fam_id),split = '_'), function(x){as.numeric(x[2])})
         fox$Den_id=as.character(fox$Den_id)
         fox$Fox_id=as.character(fox$Fox_id)
-        fox$Fam_id=as.character(fox$Fam_id)}
+        fox$Fam_id=as.character(fox$Fam_id)
                 
         #------------------------------------------------------#
         
@@ -128,7 +128,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
       
         #establishing contaminated dens based on which dens are occupied by infected foxes
         inf.dens.from.epi.period=fox[fox$I.1>0 | fox$I.2>0,'Den_id']
-        den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]$I=rep(1,nrow(den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]))}    
+        den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]$I=rep(1,nrow(den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]))   
     
         } # if this is an endemic scenario
     
