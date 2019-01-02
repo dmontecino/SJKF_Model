@@ -17,7 +17,7 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The data collection on a weekly basis (https://github.com/dmontecino/SJKF_Model/blob/master/Data_collection_script.R)
 
-* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, the transmission parameters for den associated transmission pathways, and the number of week S. scabiei can survive off-host within den per type of land type. This script actually runs the model.
+* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, the transmission parameters for den associated transmission pathways, and the number of week S. scabiei can survive off-host within den per type of land type and season. This script actually runs the model (https://github.com/dmontecino/SJKF_Model/blob/master/Model_function.R).
 
 
 ## HOW DOES IT WORK?
@@ -63,7 +63,7 @@ Do not run this model in a computer with less than 8 MB RAM. I built it in a 16 
 Download the file containing the home ranges from this link: https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU
 This is the only file that does not download automatically. I do not why but my guess it is due the size of the file.
 
-Download Model_function_script.R from this ..... 
+Download the script Model_function_script.R from this link https://github.com/dmontecino/SJKF_Model/blob/master/Model_function.R 
 
 Open the Model_function_script.R in R
 
