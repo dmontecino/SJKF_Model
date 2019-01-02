@@ -29,7 +29,7 @@ All packages needed will be installed automatically if not installed. You will b
 All files needed to run the model, such as the spatial objects containing the home ranges and others will be automatically downloaded as 
 a temp file and the objects will be loaded in your R session. The only exception is explained below (The largest file needs to be downloaded by the user).
 
-The model function will run the other scripts automatically from their current Github location. To actually read these scripts, go to the model function script and check the links. Or you can navigate the project folder (you are already on it).
+The model function will run the other scripts automatically from their current Github location. To actually read these scripts, check the links above. Or you can navigate the project folder (you are already on it).
 
 The model works by modifying 2 datasets every week: the fox dataset and the den dataset. The "fox" object contains data about (guess what) the foxes, and obviously the second one, the "den.data.set" object, contains information about the dens. These 2 datasets are connected as the foxes occupy dens, but the infestation status of the dens is shown is the dens dataset. You will not see these datasets if you do not want to, except at the end of the simulation when the dataset for the last week should be available in your environment.
 
