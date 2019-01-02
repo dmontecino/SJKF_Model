@@ -57,14 +57,14 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         # This is the script use to simulate a fox population for 8 years until it stabilized in expected population values
         # See... for details and the script to construct this fox populations.
         
-        
+        if(epidemic==T){ # if the scenario simulated is an epidemic
         fox=fox.no.disease.yet[[j]]
         fox=fox[,-1]
         fox$num=sapply(strsplit(as.character(fox$Fam_id),split = '_'), function(x){as.numeric(x[2])})
         fox$Den_id=as.character(fox$Den_id)
         fox$Fox_id=as.character(fox$Fox_id)
-        fox$Fam_id=as.character(fox$Fam_id)
-        
+        fox$Fam_id=as.character(fox$Fam_id)}
+                
         #------------------------------------------------------#
         
         # Load the data about how many weeks were the male positions available 
@@ -76,6 +76,8 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         # Same concept but with the dominant female positions available
         weeks.fams.female.available.to.be.replace.by.nb.female.sa=weeks.fams.female.available.to.be.replace.by.nb.female.sa.all[[j]]
         
+        #------------------------------------------------------#
+        
         # This is an object with the indexees of the females that had mate prior to the simulations of uninfested fox populations were finished
         # These are the females that can have offspring in the first year simulated. For the following years to be simulated now this object is created in the current script.
         fems.mate=fems.mate.all[[j]]
@@ -83,15 +85,54 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         #------------------------------------------------------#
         
         # This is an object with the weeks the dominant females of each family mate
-        
         adult.fem.mating.week=adult.fem.mating.week.all[[j]]
         
         #------------------------------------------------------#
         
         # This is an object with the ids of the dominant males that have cheated in the current year's breeding season
+        males.that.have.cheated=males.that.have.cheated.all[[j]]}
+      
+      else{ # if it is an endemic scenario
         
-        males.that.have.cheated=males.that.have.cheated.all[[j]]
-        }
+        #data set for foxes. 
+        fox=read.csv(file=files.to.load.temp.all[[j]][3])
+        fox=fox[,-1]
+        fox$num=sapply(strsplit(as.character(fox$Fam_id),split = '_'), function(x){as.numeric(x[2])})
+        fox$Den_id=as.character(fox$Den_id)
+        fox$Fox_id=as.character(fox$Fox_id)
+        fox$Fam_id=as.character(fox$Fam_id)
+        
+        #------------------------------------------------------#
+        
+        # Load the data about how many weeks were the male positions available 
+        weeks.fams.male.available.to.be.replace.by.nb.male.sa=readRDS(file=files.to.load.temp.all[[j]][6])
+        
+        #------------------------------------------------------#
+        
+        # Same concept but with the dominant female positions available
+        weeks.fams.female.available.to.be.replace.by.nb.female.sa=readRDS(file=files.to.load.temp.all[[j]][5])
+        
+        #------------------------------------------------------#
+        
+        # This is an object with the indexees of the females that had mate prior to the simulations of uninfested fox populations were finished
+        fems.mate=readRDS(file=files.to.load.temp.all[[j]][2])
+        
+        
+        # This is an object with the weeks the dominant females of each family mate
+        adult.fem.mating.week=readRDS(file=files.to.load.temp.all[[j]][1])
+        
+        #------------------------------------------------------#
+
+        # This is an object with the ids of the dominant males that have cheated in the current year's breeding season
+        males.that.have.cheated=readRDS(file=files.to.load.temp.all[[j]][4])
+      
+        #establishing contaminated dens based on which dens are occupied by infected foxes
+        inf.dens.from.epi.period=fox[fox$I.1>0 | fox$I.2>0,'Den_id']
+        den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]$I=rep(1,nrow(den.data.set[den.data.set$Den_id%in%inf.dens.from.epi.period,]))}    
+    
+        } # if this is an endemic scenario
+    
+      } # loop if it is the very first week for the current iteration
       
       
       
@@ -116,7 +157,11 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         pups_n[index.ad.fem.not.rep]<-0 # assigning zero pups to those adult females not reproducing on the first year
         temp=lapply(unique(paste(rep(paste('Fam_',c(1: n_fam),sep=''),pups_n),'n', sep='')), function(x){
                            paste(rep(paste('Fam_',c(1: n_fam),sep=''),pups_n),'n', sep='')[paste(rep(paste('Fam_',c(1: n_fam),sep=''),pups_n),'n', sep='')==x]}) # to create the pups id's
-        temp=paste(paste(unlist(lapply(temp, function(x){paste(x,c(1:length(x)), sep='')})) ,'_yr', sep=''), (years.run+1)+3, sep='') 
+        if(epidemic==TRUE){
+        temp=paste(paste(unlist(lapply(temp, function(x){paste(x,c(1:length(x)), sep='')})) ,'_yr', sep=''), (years.run+1)+3, sep='')}
+        if(epidemic!=TRUE){
+        temp=paste(paste(unlist(lapply(temp, function(x){paste(x,c(1:length(x)), sep='')})) ,'_yr', sep=''), (years.run+1)+6, sep='')}
+          
         pups.temp<-data.frame(Fam_id=rep(paste('Fam_',c(1: n_fam),sep=''),pups_n),
                               Fox_id=temp,
                               Father_id=rep(fox[fox$Social==3 & fox$Gender==1,]$Fox_id,pups_n),
