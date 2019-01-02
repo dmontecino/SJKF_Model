@@ -24,7 +24,7 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 The ONLY script you need to download to run the model is the one containing the function: Model_function_script.R
 
-All packages needed will be installed automatically if not installed. You will be requiered to approve the installation. the Installed packages as well as those that were already installed in your computer will be loaded automatically.
+All packages needed will be installed automatically if not installed. The Installed packages as well as those that were already installed in your computer will be loaded automatically.
 
 All files needed to run the model, such as the spatial objects containing the home ranges and others will be automatically downloaded as 
 a temp file and the objects will be loaded in your R session. The only exception is explained below (The largest file needs to be downloaded by the user).
