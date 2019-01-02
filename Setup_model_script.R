@@ -135,7 +135,7 @@ males.that.have.cheated.all=readRDS(url(description="https://drive.google.com/uc
 ### --- FILES NEEDED FOR THE SIMULATIONS IN ENDEMIC SCENARIO --- ###
 
 if(epidemic==FALSE){
-files.to.load.all=readRDS(url(description="https://drive.google.com/uc?export=download&id=1-z1BF2JCLBbGMM5gXrZYInvgoN9sQbJP", open = "rb"))}
+files.to.load.temp.all=readRDS(url(description="https://drive.google.com/uc?export=download&id=1-z1BF2JCLBbGMM5gXrZYInvgoN9sQbJP", open = "rb"))}
 
 ###########################################################
 ### ---- TIME UNITS AND TIME PERIODS IN THE MODEL ---- ####
