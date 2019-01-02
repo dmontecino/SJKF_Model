@@ -7,27 +7,21 @@
 # dmontecino@ucdavis.edu
 # Details of the model are published in the journal "Epidemics" January 2019
 
-###########################
-# --- LOAD THE LIBRARY ---#
-###########################
-
-# function to load packages 
-using<-function(...) {
-  libs<-unlist(list(...))
-  req<-unlist(lapply(libs,require,character.only=TRUE))
-  need<-libs[req==FALSE]
-  if(length(need)>0){ 
-    install.packages(need)
-    lapply(need,require,character.only=TRUE)
-  }
-}
 
 ################################
 # --- LOAD PACKAGES NEEDED --- #
 ################################
-# if packages needed are not installed, it will ask for permission to install them.
+# if packages needed are not installed, install and load them
 
-using("sp","rgeos","pedometrics","partitions", "gtools")
+# List of packages for session
+.packages = c("sp","rgeos","pedometrics","partitions", "gtools")
+
+# Install CRAN packages (if not already installed)
+.inst <- .packages %in% installed.packages()
+if(length(.packages[!.inst]) > 0) install.packages(.packages[!.inst])
+
+# Load packages into session 
+lapply(.packages, require, character.only=TRUE)
 
 ############################
 # --- LOAD FILES NEEDED ---#
