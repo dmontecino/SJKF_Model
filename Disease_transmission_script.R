@@ -11,14 +11,14 @@
 
 
 # For the parameters of the processes associated with disease transmission, they are 
-# located in ... THIS is the model function...
+# located in the set_up_script.R and run_the_model_script.R
 
 
 if(track.disease==T){ # If we want to track the disease process 
   
   
   #### INTRODUCE AN EXPOSED FOX IN THE POPULATION ####
-  
+  if(epidemic==TRUE){ # if it is a epidemic scenario
   if(d==45 & years.run==0){ # introduced an exposed infividual on the first year simulated during the 45th week
     fams.north.bako=which(gIntersects(box, home_ranges, byid = T)) # which families are in the top north of the city
     home_range_of_introduction_opcion=unique(fox[fox$Fam_id%in%paste('Fam_',fams.north.bako, sep='') & fox$Alive==1 & fox$E==0 & fox$S==1 & fox$Social==3,]$Fam_id) # the id's of the families int the north top of the city
@@ -27,6 +27,7 @@ if(track.disease==T){ # If we want to track the disease process
       first_exposed_fox=sample(fox[fox$Fam_id==home_range_of_introduction & fox$Alive==1 & fox$E==0 & fox$S==1 & fox$Social==3,]$Fox_id,1) # select the first exposed fox in this family
       fox[which(fox$Fox_id==first_exposed_fox), ]$E=0.1 # as exposed. By the end of the week the E moves to 1
       fox[which(fox$Fox_id==first_exposed_fox), ]$S=0}} # correct susceptible. This exposed fox is not susceptible anymore.
+  } # if epidemic 
   
   # ---------------------------------------------- #
   
