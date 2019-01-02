@@ -17,13 +17,12 @@ The model is divided in 6 scripts I thought this will make it easier to understa
 
 * The data collection on a weekly basis (https://github.com/dmontecino/SJKF_Model/blob/master/Data_collection_script.R)
 
-* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, and the transmission parameters for den associated transmission pathways. This script actually runs the model.
+* The actual model function to set your parameters of interest such as the number of iterations, the number of years to simulate, if you want to run an epidemic or endemic scenario, the transmission parameters for den associated transmission pathways, and the number of week S. scabiei can survive off-host within den per type of land type. This script actually runs the model.
 
 
 ## HOW DOES IT WORK?
 
-The ONLY script you need to download to run the model is the one containing the function: 
-located at ...
+The ONLY script you need to download to run the model is the one containing the function: Model_function_script.R
 
 All packages needed will be installed automatically if not installed. You will be requiered to approve the installation. the Installed packages as well as those that were already installed in your computer will be loaded automatically.
 
@@ -62,16 +61,21 @@ The den dataset contains the following columns:
 Do not run this model in a computer with less than 8 MB RAM. I built it in a 16 MB RAM computer and everything worked just fine including functionalities beyond running the model.
 
 Download the file containing the home ranges from this link: https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU
+This is the only file that does not download automatically. I do not why but my guess it is due the size of the file.
 
-Download the model function script from this link and open it in R.
+Download Model_function_script.R from this ..... 
 
-Modify line .. of the model function script to load the object containing the home ranges. Of you are not planning on running the 1000 iterations available, subset this list to the number you want to.
+Open the Model_function_script.R in R
 
-Suprimir listas del output
+Modify the path in line 81 of the Model_function_script.R to load the object containing the home ranges. If you are not planning on running the 1000 iterations available, subset this list to the number you want to.
+
+Set the values of the parameters as you which. The explanation of each parameter is in the script.
+
+Once you are satified with the values of the parameters of interest run the script.
 
 ## OUTPUT
 
-The output of the model comes in matrices and lists. The matrices rows equal the number of iterations (max 1,000) and the number of columns equal to the total number of years simulated multiplied by the number of weeks per year simulated (always 52). These matrices are:
+The output of the model comes in the object "output" which contains matrices and lists per object. The matrices rows equal the number of iterations (max 1,000) and the number of columns equal to the total number of years simulated multiplied by the number of weeks per year simulated (always 52). These matrices are:
 
 * N: the number of alive foxes
 * Adults: The number of dominant foxes
@@ -110,7 +114,8 @@ There is an option to supress this output. See "Instructions".
 
 ## Assess the output
 
-
+The object "output" is a list that contains the matrices and lists
+For example, if you want to access the San Joaquin fox population, then do: output$N 
 
 
 
