@@ -115,7 +115,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         #------------------------------------------------------#
         
         # This is an object with the indexees of the females that had mate prior to the simulations of uninfested fox populations were finished
-        fems.mate=readRDS(file=files.to.load.temp.all[[j]][[5]])
+        fems.mate=readRDS(file=files.to.load.temp.all[[j]][[2]])
         
         
         # This is an object with the weeks the dominant females of each family mate
