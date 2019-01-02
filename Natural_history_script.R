@@ -423,10 +423,48 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         foxes.that.may.die.of.mange=fox[fox$S==0 & fox$E==0 & fox$I.1==0 & fox$I.2>=4 & fox$Alive==1,]$Fox_id # the set of foxes that die of sarcoptic mange: those infested individuals with at leat a month as infectious type II
         fox[fox$S==0 & fox$E==0 & fox$I.1==0 & fox$I.2>=4 & fox$Alive==1,]$Alive=rep(0,nrow(fox[fox$S!=1 & fox$E==0 & fox$I.1==0 & fox$I.2>=4 & fox$Alive==1,])) # Correct the alive status of the foxes that die of sarcoptic mange
         foxes.that.died.of.mange=fox[fox$Fox_id%in%foxes.that.may.die.of.mange & fox$Alive==0,]$Fox_id
-      
-  
+     
         #------------------------------------------------------#
-  
+      
+      
+      
+        # Surviving of sarcoptes in dens with corresponding probability in winter and they all get clear in summer
+        dens.clear.open=den.data.set[den.data.set$I>=0.1 & den.data.set$Land_type%in%c('Open', 'Transition', 'Industrial', 'Linear'),]$Den_id # potential dens to clear
+        dens.clear.residential=den.data.set[den.data.set$I>=0.1 & den.data.set$Land_type%in%c('Residential', 'Commercial', 'Manicured'),]$Den_id # potential dens to clear
+        dens.clear.sump=den.data.set[den.data.set$I>=0.1 & den.data.set$Land_type%in%c('Sumps'),]$Den_id
+
+        # survival of sarcopted in the dens during winter depending on the land type and season
+        if(d%in%unlist(weeks.by.month[c(1:4,12)])){ # if winter
+          dens.clear.open=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.cold.open & den.data.set$Land_type%in%c('Open', 'Transition', 'Industrial', 'Linear'),]$Den_id # dens in open transition industrial and linear dens that are infested with S. scabiei for more than one week in the cold season get cleared
+          dens.clear.residential=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.cold.residential & den.data.set$Land_type%in%c('Residential', 'Commercial', 'Manicured'),]$Den_id # dens in residential comercial and manicured dens that are infested with S. scabiei for more than three weeks in the cold season get cleared
+          dens.clear.sump=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.cold.sump & den.data.set$Land_type%in%c('Sumps'),]$Den_id # dens in sumps that are infested with S. scabiei for more than two weeks in the cold season get cleared
+
+          if(length(dens.clear.open)>0 | length(dens.clear.residential)>0 | length(dens.clear.sump)>0){ # if there are dens to get cleared
+            if(length(dens.clear.open)>0){ # if there ar dens in open land type
+              den.data.set[den.data.set$Den_id%in%dens.clear.open,]$I=0} # clear them
+            if(length(dens.clear.residential)>0){ # same for the remaining dens
+              den.data.set[den.data.set$Den_id%in%dens.clear.residential,]$I=0}
+            if(length(dens.clear.sump)>0){
+              den.data.set[den.data.set$Den_id%in%dens.clear.sump,]$I=0}}}else{
+
+        # survival of sarcoptes in the dens during summer depending on the land type and season    
+        # same idea as before
+        dens.clear.open=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.warm.open & den.data.set$Land_type%in%c('Open', 'Transition', 'Industrial', 'Linear'),]$Den_id # potential dens to clear
+        dens.clear.residential=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.warm.residential & den.data.set$Land_type%in%c('Residential', 'Commercial', 'Manicured'),]$Den_id # potential dens to clear
+        dens.clear.sump=den.data.set[den.data.set$I>=weeks.s.scabiei.surv.warm.sump & den.data.set$Land_type%in%c('Sumps'),]$Den_id
+
+          if(length(dens.clear.open)>0 | length(dens.clear.residential)>0 | length(dens.clear.sump)>0){
+            if(length(dens.clear.open)>0){
+              den.data.set[den.data.set$Den_id%in%dens.clear.open,]$I=0}
+            if(length(dens.clear.residential)>0){
+              den.data.set[den.data.set$Den_id%in%dens.clear.residential,]$I=0}
+            if(length(dens.clear.sump)>0){
+              den.data.set[den.data.set$Den_id%in%dens.clear.sump,]$I=0}}}
+
+      #------------------------------------------------------#
+      
+      
+      
       # Disease progression in exposed and infectious individuals
       # Adding one more week to the current sarcoptic mange status of foxes. Infection at the beginning of the week
       fox[fox$S==0 & fox$E==0 & fox$I.1==0 & fox$I.2>=1,]$I.2=fox[fox$S==0 & fox$E==0 & fox$I.1==0 & fox$I.2>=1,]$I.2+1 #one more week as infectious type II
