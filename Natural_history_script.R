@@ -95,7 +95,7 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
       else{ # if it is an endemic scenario
         
         #data set for foxes. 
-        fox=read.csv(file=files.to.load.temp.all[[j]][3])
+        fox=read.csv(file=files.to.load.temp.all[[j]][[3]])
         fox=fox[,-1]
         fox$num=sapply(strsplit(as.character(fox$Fam_id),split = '_'), function(x){as.numeric(x[2])})
         fox$Den_id=as.character(fox$Den_id)
@@ -105,26 +105,26 @@ for(j in 1:num.iterations){# num of iterations is set in parameters
         #------------------------------------------------------#
         
         # Load the data about how many weeks were the male positions available 
-        weeks.fams.male.available.to.be.replace.by.nb.male.sa=readRDS(file=files.to.load.temp.all[[j]][6])
+        weeks.fams.male.available.to.be.replace.by.nb.male.sa=readRDS(file=files.to.load.temp.all[[j]][[6]])
         
         #------------------------------------------------------#
         
         # Same concept but with the dominant female positions available
-        weeks.fams.female.available.to.be.replace.by.nb.female.sa=readRDS(file=files.to.load.temp.all[[j]][5])
+        weeks.fams.female.available.to.be.replace.by.nb.female.sa=readRDS(file=files.to.load.temp.all[[j]][[5]])
         
         #------------------------------------------------------#
         
         # This is an object with the indexees of the females that had mate prior to the simulations of uninfested fox populations were finished
-        fems.mate=readRDS(file=files.to.load.temp.all[[j]][2])
+        fems.mate=readRDS(file=files.to.load.temp.all[[j]][[5]])
         
         
         # This is an object with the weeks the dominant females of each family mate
-        adult.fem.mating.week=readRDS(file=files.to.load.temp.all[[j]][1])
+        adult.fem.mating.week=readRDS(file=files.to.load.temp.all[[j]][[1]])
         
         #------------------------------------------------------#
 
         # This is an object with the ids of the dominant males that have cheated in the current year's breeding season
-        males.that.have.cheated=readRDS(file=files.to.load.temp.all[[j]][4])
+        males.that.have.cheated=readRDS(file=files.to.load.temp.all[[j]][[4]])
       
         #establishing contaminated dens based on which dens are occupied by infected foxes
         inf.dens.from.epi.period=fox[fox$I.1>0 | fox$I.2>0,'Den_id']
