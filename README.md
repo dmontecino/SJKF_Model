@@ -63,15 +63,13 @@ Do not run this model in a computer with less than 8 MB RAM. I built it in a 16 
 Download the file containing the home ranges from this link: https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU
 This is the only file that does not download automatically. I do not why but my guess it is due the size of the file.
 
-Download the script Model_function_script.R from this link https://github.com/dmontecino/SJKF_Model/blob/master/Model_function.R 
+Copy the script Model_function_script.R from this link https://github.com/dmontecino/SJKF_Model/blob/master/Model_function.R and paste it in your text editor.
 
-Open the Model_function_script.R in R
-
-Modify the path in line 81 of the Model_function_script.R to load the object containing the home ranges. If you are not planning on running the 1000 iterations available, subset this list to the number you want to.
+Modify the path in line 81 of the script to load the object containing the home ranges. If you are not planning on running the 1000 iterations available, subset this list to the number you want to.
 
 Set the values of the parameters as you which. The explanation of each parameter is in the script.
 
-Once you are satified with the values of the parameters of interest run the script.
+Once you are satified with the values of the parameters of interest run the script in R.
 
 ## OUTPUT
 
