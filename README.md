@@ -112,8 +112,8 @@ There is an option to supress this output. See "Instructions".
 
 ## Assess the output
 
-The object "output" is a list that contains the matrices and lists
-For example, if you want to access the San Joaquin fox population, then do: output$N 
+The object "output" is a list that contains the matrices and lists mentioned previously.
+For example, if you want to access the San Joaquin fox population, type: output$N 
 
 
 
