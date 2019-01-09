@@ -61,7 +61,7 @@ The den dataset contains the following columns:
 Do not run this model in a computer with less than 8 MB RAM. I built it in a 16 MB RAM computer and everything worked just fine including functionalities beyond running the model.
 
 Download the file containing the home ranges from this link: https://drive.google.com/uc?export=download&id=0B_DpR28UsQR7UnhPbXU1cW4zRkU
-This is the only file that does not download automatically. I do not why but my guess it is due the size of the file.
+This is the only file that does not download automatically. I do not why but my guess it is due the its size (~200 MB).
 
 Copy the script Model_function_script.R from this link https://raw.githubusercontent.com/dmontecino/SJKF_Model/master/Model_function_script.R and paste it in your text editor.
 
